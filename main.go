@@ -19,5 +19,23 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println(config)
+	printConfig(config)
+}
+
+func printConfig(conf map[string]interface{}) {
+	for k, v := range conf {
+		fmt.Printf("key: %v\nval: %#v\n\n", k, v)
+		switch v.(type) {
+		case string:
+			fmt.Println("$ $ $ $ $ string $ $ $ $ $")
+			continue
+		case map[string]interface{}:
+			fmt.Println("$ $ $ $ $ map[string]interface{} $ $ $ $ $")
+			vm := v.(map[string]interface{})
+			printConfig(vm)
+		default:
+			fmt.Println("$ $ $ $ $ default $ $ $ $ $")
+
+		}
+	}
 }
