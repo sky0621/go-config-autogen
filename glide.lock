@@ -1,8 +1,0 @@
-hash: af18e1a3cc396bf343f8c3a2fb8da8f05d861e89761557c93308dd2ce2d9b820
-updated: 2017-07-09T00:16:09.1421691+09:00
-imports:
-- name: github.com/pelletier/go-buffruneio
-  version: df1e16fde7fc330a0ca68167c23bf7ed6ac31d6d
-- name: github.com/pelletier/go-toml
-  version: 5ccdfb18c776b740aecaf085c4d9a2779199c279
-testImports: []

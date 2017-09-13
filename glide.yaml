@@ -1,4 +1,4 @@
 package: github.com/sky0621/go-config-autogen
 import:
-- package: github.com/pelletier/go-toml
-  version: ~1.0.0
+- package: github.com/naoina/toml
+  version: ~0.1.1
