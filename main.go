@@ -5,6 +5,8 @@ import (
 
 	"fmt"
 
+	"time"
+
 	"github.com/naoina/toml"
 )
 
@@ -24,17 +26,26 @@ func main() {
 
 func printConfig(conf map[string]interface{}) {
 	for k, v := range conf {
-		fmt.Printf("key: %v\nval: %#v\n\n", k, v)
+		fmt.Printf("key: %v\nval: %#v\n", k, v)
 		switch v.(type) {
 		case string:
-			fmt.Println("$ $ $ $ $ string $ $ $ $ $")
+			fmt.Printf("[value.type = string]\n\n")
+			continue
+		case int:
+			fmt.Printf("[value.type = int]\n\n")
+			continue
+		case time.Time:
+			fmt.Printf("[value.type = time.Time]\n\n")
+			continue
+		case []string:
+			fmt.Printf("[value.type = []string]\n\n")
 			continue
 		case map[string]interface{}:
-			fmt.Println("$ $ $ $ $ map[string]interface{} $ $ $ $ $")
+			fmt.Printf("[value.type = map[string]interface{}\n\n")
 			vm := v.(map[string]interface{})
 			printConfig(vm)
 		default:
-			fmt.Println("$ $ $ $ $ default $ $ $ $ $")
+			fmt.Println(v)
 
 		}
 	}
